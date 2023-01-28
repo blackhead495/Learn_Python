@@ -16,7 +16,7 @@
 # # print(num, '->', d1 + d2 + d3, '(', d3, '+', d2, '+', d1, ')')
 # print(f'{num} -> {d1 + d2 + d3} ({d3} + {d2} + {d1})')
 
-# ------- Способ 2 ------------------------------------
+# ------- Способ 2 - Работает для любого колич знаков ------
 
 tmp = num = int(input('Введите трёхзначное число : '))
 summa = 0
@@ -30,13 +30,13 @@ while tmp:
 
 lst.reverse()
 
-print(num, '->', summa, '(', *lst, ')')
+# print(num, '->', summa, '(', *lst, ')')
 
-# print(f'{num} -> {summa} ( ', end='')
-# for i in range(len(lst)):
-#     print(lst[i], end=' ')
-# else:
-#     print(')')
+print(f'{num} -> {summa} (', end='')
+for i in range(len(lst)):
+    print(lst[i], end=' ')
+else:
+    print('\b)')
 
 
 

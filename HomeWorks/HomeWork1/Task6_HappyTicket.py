@@ -4,3 +4,23 @@
 # которая проверяет счастливость билета.
 # 385916 -> yes
 # 123456 -> no
+
+n = int(input('Введите номер билета : '))
+
+if 100000 <= n < 1000000:
+    tmp = n
+    Summa = [0, 0]
+
+    for i in range(2):
+        for j in range(3):
+            d = tmp - tmp // 10 * 10
+            Summa[i] += d
+            tmp //= 10
+
+    if Summa[0] == Summa[1]:
+        print(f'{n} -> yes')
+    else:
+        print(f'{n} -> no')
+
+else:
+    print('Указан неверный номер билета...')
