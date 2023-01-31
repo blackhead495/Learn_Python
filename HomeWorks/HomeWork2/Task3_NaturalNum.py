@@ -14,4 +14,5 @@ for i in range(1001):
     if P == j * i:
         break
 
+print(f'Исходные данные: S = {S}, P = {P}')
 print(f'Ответ: {i}, {j}')

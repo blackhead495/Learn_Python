@@ -3,14 +3,12 @@
 
 num = int(input('Введите число : '))
 
-i = 0       # Степень
 p = 1       # Число равное 2^i
-lst = []
+lst = [1]
 
 while p <= num:
     p *= 2
-    i += 1
-    lst.append(i)
+    lst.append(p)
 
 print(f'{num}: ', end='')
 
