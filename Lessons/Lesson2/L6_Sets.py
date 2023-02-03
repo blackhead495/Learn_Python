@@ -2,7 +2,7 @@
 
 # colors = {'red', 'green', 'blue'}
 # print(colors)           # {'red', 'green', 'blue'}
-# print(type(colors))     # set
+# print(type(colors))     # st
 #
 # colors.add('gray')    # добавить элемент
 # print(colors)           # {'red', 'green', 'blue', 'gray'}
