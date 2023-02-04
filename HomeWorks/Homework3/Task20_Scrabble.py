@@ -21,3 +21,67 @@
 #   Будем считать, что на вход подается только одно слово,
 #   которое содержит либо только английские, либо только русские буквы.
 
+# -----------------------------------------------------------------------------
+# --- создаем латинский словарь -----------------------------------------------
+
+letter = ('A', 'E', 'I', 'O', 'U', 'L', 'N', 'S', 'T', 'R')
+point = 1
+dict_eng = dict.fromkeys(letter, point)
+
+letter = ('D', 'G')
+point = 2
+dict_eng.update(dict.fromkeys(letter, point))
+
+letter = ('B', 'C', 'M', 'P')
+point = 3
+dict_eng.update(dict.fromkeys(letter, point))
+
+letter = ('F', 'H', 'V', 'W', 'Y')
+point = 4
+dict_eng.update(dict.fromkeys(letter, point))
+
+letter = 'K'
+point = 5
+dict_eng.update(dict.fromkeys(letter, point))
+
+letter = ('J', 'X')
+point = 8
+dict_eng.update(dict.fromkeys(letter, point))
+
+letter = ('Q', 'Z')
+point = 10
+dict_eng.update(dict.fromkeys(letter, point))
+
+print(dict_eng)
+
+# -----------------------------------------------------------------------------
+# --- создаем русский словарь другим способом ---------------------------------
+letter_rus = ('А', 'В', 'Е', 'И', 'Н', 'О', 'Р', 'С', 'Т',  # 1 очко    - 9 букв
+              'Д', 'К', 'Л', 'М', 'П', 'У',                 # 2 очка    - 6 букв
+              'Б', 'Г', 'Ё', 'Ь', 'Я',                      # 3 очка    - 5 букв
+              'Й', 'Ы',                                     # 4 очка    - 2 буквы
+              'Ж', 'З', 'Х', 'Ц', 'Ч',                      # 5 очков   - 5 букв
+              'Ш', 'Э', 'Ю',                                # 8 очков   - 3 буквы
+              'Ф', 'Щ', 'Ъ')                                # 10 очков  - 3 буквы
+
+# print(letter_rus)
+
+point_list = [1] * 9 + [2] * 6 + [3] * 5 + [4] * 2 + [5] * 5 + [8] * 3 + [10] * 3
+dict_rus = dict(zip(letter_rus, point_list))  # zip - сшивает два значения, dict - преобразует к типу словарь
+# print(dict_rus)
+
+#--------------------------------------------------------------------------------
+word = input('Введите слово: ')
+lst = list(word.upper())
+print(lst)
+
+
+score = 0
+if 'A' < lst[0] < 'Z':
+    for i in lst:
+        score += dict_eng[i]
+else:
+    for i in lst:
+        score += dict_rus[i]
+
+print('->', score)
