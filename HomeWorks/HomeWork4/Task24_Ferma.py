@@ -36,4 +36,3 @@ for i in range(n_bush):
         berrMax = berrSum
 
 print('->', berrMax)
-
