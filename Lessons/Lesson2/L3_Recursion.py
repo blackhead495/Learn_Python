@@ -8,3 +8,5 @@ lst = []
 for e in range(1, 10):
     lst.append(fib(e))
 print( *lst )
+
+print(fib(8))
