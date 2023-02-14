@@ -11,8 +11,31 @@
 
 N = int(input('N: ')) # Максимальное число
 
+lsT_fr1 = []
+lst_fr2 = []
+
 sum_fr1 = 0
 sum_fr2 = 0
+
 for i in range(1, N):
+    for j in range(i, N):       # Поиск делителей 1
+        if N % j == 0:
+            lsT_fr1.append(i)
+
+    sum_fr1 = sum(lsT_fr1)
+
+    for k in range(j+1, N-1):
+        if N % k == 0:
+            lst_fr2.append(i)
+
+    sum_fr2 = sum(lst_fr2)
+
+
+
+
+print(lsT_fr1)
+print(sum_fr1)
+
+
 
 
