@@ -25,10 +25,16 @@ for i in range(1, N):
     sum_fr1 = sum(lsT_fr1)
 
     for k in range(j+1, N-1):
-        if N % k == 0:
-            lst_fr2.append(i)
+        for l in range(k, N):
+            if N % k == 0:
+                lst_fr2.append(i)
+            sum_fr2 = sum(lst_fr2)
+            if sum_fr1 == sum_fr2:
+                lst_fr1.append(k)
 
-    sum_fr2 = sum(lst_fr2)
+for m in range(len(lsT_fr1)):
+    print(lsT_fr1[m])
+
 
 
 
