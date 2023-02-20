@@ -20,4 +20,5 @@ def find_farhest_orbit(list_of_orbits):
     return list_of_elliptical_orbits[max_area_index]
 
 orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
+
 print(*find_farhest_orbit(orbits))
