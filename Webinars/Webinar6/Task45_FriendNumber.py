@@ -7,12 +7,28 @@
 # выведена только один раз (перестановка чисел новую пару не дает).
 # Ввод:                     Вывод:
 # 300                       220 284
-
+import time
 
 N = int(input('N: ')) # Максимальное число
 
-sum_fr1 = 0
-sum_fr2 = 0
-for i in range(1, N):
+start = time.time()
 
+lst = []
+for i in range(1, N):
+    summa = 0
+    for j in range(1, i // 2 + 1):
+        if i % j == 0:
+            summa += j
+    lst.append(tuple([i, summa]))
+
+print(lst)
+
+for i in range(len(lst)):
+    for j in range(i, len(lst)):
+        if i != j and lst[i][0] == lst[j][1] and lst[i][1] == lst[j][0]:
+            print(*lst[i])
+
+end = time.time()
+
+print(end - start)
 
