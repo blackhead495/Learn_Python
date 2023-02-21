@@ -15,3 +15,18 @@
 # 4 8 12 16 20 24
 # 5 10 15 20 25 30
 # 6 12 18 24 30 36 |
+
+#-------------------------------------------------------------
+
+def print_operation_table(operation, num_rows = 10, num_col = 10):
+    if num_rows < 2 or num_col < 2:
+        print('Ошибка! Размерности таблицы должны быть больше 2')
+    else:
+        print('\t'.join([str(i) for i in range(1, num_col + 1)]))
+        for i in range(2, num_rows + 1):
+            print(i, end='\t')
+            for j in range(2, num_col + 1):
+                print(operation(i, j), end='\t')
+            print()
+
+print_operation_table(lambda x, y: x * y)

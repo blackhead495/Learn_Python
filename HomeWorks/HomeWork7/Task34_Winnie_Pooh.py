@@ -13,7 +13,8 @@
 # Парам пам-пам
 
 #-------------------------------------------------------------------------------------
-stich = 'пара-ра-рам рам-пам-папам па-ра-па-да'
+stich = 'пара-ра-рам'
+#stich = 'пара-ра-рам рам-пам-папам па-ра-па-да'
 
 glasn = set('аеёиоуыэюя')
 print(glasn)
@@ -23,20 +24,23 @@ count_glasn = []
 words = stich.lower().split()   #Переводим все буквы в нижний регистр и разделяем на слова
 print(words)
 
-for i in words:
-    count_glasn.append(len([x for x in i if x in glasn]))
-
-print(count_glasn)
-
-stich_good = True
-for i in range(len(count_glasn)-1):
-    if count_glasn[i] != count_glasn[i+1]:
-        stich_good = False
-        break
-
-if stich_good:
-    print('Парам пам-пам')
+if len(words) < 2:
+    print("Количество слов должно быть более 1")
 else:
-    print('Пам парам')
+    for i in words:
+        count_glasn.append(len([x for x in i if x in glasn]))
+
+    print(count_glasn)
+
+    stich_good = True
+    for i in range(len(count_glasn)-1):
+        if count_glasn[i] != count_glasn[i+1]:
+            stich_good = False
+            break
+
+    if stich_good:
+        print('Парам пам-пам')
+    else:
+        print('Пам парам')
 
 
