@@ -1,10 +1,10 @@
-from Task49_PhoneBook import addPerson
-from Task49_PhoneBook import findPerson
-from Task49_PhoneBook import replacePerson
-from Task49_PhoneBook import deletePerson
-from Task49_PhoneBook import printPhoneBook
+from Task38_PhoneBook import addPerson
+from Task38_PhoneBook import findPerson
+from Task38_PhoneBook import replacePerson
+from Task38_PhoneBook import deletePerson
+from Task38_PhoneBook import printPhoneBook
 
-#import Task49_PhoneBook as t
+#import Task38_PhoneBook as t
 
 def begin():
     #while True:
