@@ -7,7 +7,7 @@
 
 path = 'phonebook.txt'
 def addPerson():                #  -- 1 --
-    with open(path, 'a') as data:
+    with open(path, 'a', encoding='UTF-8') as data:
         data.write(input('Введите фамилию: '))
         data.write(' ')
         data.write(input('Введите имя: '))
@@ -20,7 +20,7 @@ def addPerson():                #  -- 1 --
 def findPerson():               #  -- 2 --
     userRequest = input('Введите слово для поиска: ')
     count = 0
-    with open(path, 'r') as data:
+    with open(path, 'r', encoding='UTF-8') as data:
         for line in data:
             if userRequest in line:
                 print(line, end='')
@@ -33,7 +33,7 @@ def replacePerson():            #  -- 3 --
     newword = input('Введите слово, которым нужно заменить: ')
     count = 0
     pos = 0
-    with open(path, "r") as data:
+    with open(path, "r", encoding='UTF-8') as data:
         L = data.readlines()
         for line in L:
             if oldword in line:
@@ -49,7 +49,7 @@ def replacePerson():            #  -- 3 --
     if count == 0:
         print('Совпадений не найдено')
     else:
-        with open(path, "w") as data:
+        with open(path, "w", encoding='UTF-8') as data:
             for line in L:
                 data.write(line)
 
@@ -58,15 +58,14 @@ def deletePerson():             #  -- 4 --
     count = 0
     pos = 0
 
-    with open(path, "r") as data:
+    with open(path, "r", encoding='UTF-8') as data:
         L = data.readlines()
         #print(L)
         for line in L:
             if userRequest in line:
                 print(line, end='')
                 answer = input('Удалить? Y - Да, N - Нет: ')
-                if answer == 'Y' or answer == 'y':
-                    print(pos)
+                if answer.upper() == 'Y':
                     count += 1
                     break
             pos += 1
@@ -78,45 +77,16 @@ def deletePerson():             #  -- 4 --
 
         #print(L)
 
-    with open(path, "w") as data:
-        for line in L:
-            data.write(line)
-
     if count == 0:
         print('Совпадений не найдено')
+    else:
+        with open(path, "w", encoding='UTF-8') as data:
+            for line in L:
+                data.write(line)
 
 def printPhoneBook():           #  -- 5 --
-    with open(path, 'r') as data:
+    with open(path, 'r', encoding='UTF-8') as data:
         rdata = data.read()
     print(rdata)
 
 
-
-def begin():
-    #while True:
-        print('1 - добавление новой записи')
-        print('2 - поиск записи')
-        print('3 - изменение записи')
-        print('4 - удаление записи')
-        print('5 - вывод всего списка')
-        print('0 - выход')
-
-        command = int(input('Введите пункт меню: '))
-
-        match command:
-            case 1:
-                addPerson()
-            case 2:
-                findPerson()
-            case 3:
-                replacePerson()
-            case 4:
-                deletePerson()
-            case 5:
-                printPhoneBook()
-            case _:
-                print('До свидания!')
-                exit()
-
-#----------------------------------------------
-begin()
